@@ -17,6 +17,12 @@ class Api::V1::PlayersController < ApplicationController
 
     end
 
+    def update
+        @player = Player.find_by_id(params[:id])
+        @player.likes +=  1
+        @player.save
+    end
+
     private
 
     def player_params
