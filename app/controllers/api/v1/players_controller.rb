@@ -21,6 +21,7 @@ class Api::V1::PlayersController < ApplicationController
         @player = Player.find_by_id(params[:id])
         @player.likes +=  1
         @player.save
+        render json: @player
     end
 
     private
