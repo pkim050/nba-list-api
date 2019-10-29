@@ -19,7 +19,9 @@ class Api::V1::PlayersController < ApplicationController
 
     def update
         @player = Player.find_by_id(params[:id])
-        @player.likes +=  1
+        #@player.likes +=  1
+        team = Team.find_by(id: params[:teamid])
+        @player.team_id = team.id
         @player.save
         render json: @player
     end
